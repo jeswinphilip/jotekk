@@ -96,6 +96,14 @@ section {
 
 /* Header Styles */
 /* Header styles */
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header Styles */
 header {
     background-color: white;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -113,19 +121,14 @@ header {
     padding: 0 2rem;
 }
 
-/* Left side - logo and call button */
-.left-section {
-    display: flex;
-    align-items: center;
-}
-
+/* Logo and Call button */
 .logo-container {
     display: flex;
     align-items: center;
 }
 
 .logo-container img {
-    height: 100px;
+    height: 50px;
     margin-right: 1rem;
 }
 
@@ -146,25 +149,10 @@ header {
     background-color: #e6004c;
 }
 
-/* Right side - menu */
-.right-section {
-    display: flex;
-    align-items: center;
-}
-
-/* Hamburger */
-.menu-toggle {
-    display: none;
-    font-size: 30px;
-    cursor: pointer;
-}
-
-/* Nav menu */
+/* Menu */
 nav ul {
     display: flex;
     list-style: none;
-    margin: 0;
-    padding: 0;
 }
 
 nav ul li {
@@ -173,7 +161,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: var(--dark-color);
+    color: #333;
     font-weight: 600;
     text-transform: uppercase;
     font-size: 0.9rem;
@@ -181,63 +169,78 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: var(--primary-color);
+    color: #ff3366;
 }
 
-/* Dropdown */
+/* Dropdown Menu */
+nav ul li:hover .dropdown {
+    display: block;
+}
+
 .dropdown {
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: white;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-    padding: 1rem 0;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 5px;
     min-width: 200px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-}
-
-nav ul li:hover .dropdown {
-    opacity: 1;
-    visibility: visible;
+    padding: 1rem 0;
 }
 
 .dropdown li {
     margin: 0;
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 1rem;
 }
 
 .dropdown li a {
-    color: var(--text-color);
-    font-weight: 500;
     text-transform: capitalize;
+    color: #555;
+    font-weight: 500;
 }
 
-/* Responsive */
+/* Hamburger Icon */
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Hide the checkbox */
+.menu-toggle {
+    display: none;
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
     nav ul {
-        display: none;
         flex-direction: column;
-        background: white;
         position: absolute;
         top: 80px;
-        right: 20px;
+        right: 0;
         width: 250px;
+        background: white;
         box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        display: none;
         padding: 1rem;
         border-radius: 8px;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    /* When checkbox is checked, show menu */
+    .menu-toggle:checked + .menu-icon + nav ul {
+        display: flex;
     }
 
     nav ul li {
         margin: 1rem 0;
     }
-
-    .menu-toggle {
-        display: block;
-    }
 }
+
 
 
 /* Hero Section */
